@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-module.exports = getContactSchema = (data)=>{
-    const chatSchema = new mongoose.Schema({
-        text:{
-            type:String,
-            required:true
-        }
-    },{ timestamps: true })
+const chatSchema = new mongoose.Schema({
+    text:{
+        type:String,
+        required:true
+    }
+},{ timestamps: true })
 
-    const chatModel = mongoose.model(`${data}-ChatDB`);
+module.exports = getContactSchema = (data)=>{
+
+    const chatModel = mongoose.model(`${data}-ChatDB`,chatSchema);
     return chatModel;
 }

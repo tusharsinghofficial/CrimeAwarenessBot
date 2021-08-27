@@ -20,9 +20,10 @@ mong.connect(process.env.MONGO_URI,()=>{
 
 //IMPORTING ALL THE ROUTES
 const authRoute = require('./routes/auth');
-
+const ChatRoute = require('./routes/Chat');
 //USING THE ROUTES IN EXPRESS
 app.use('/api/user',authRoute);
+app.use('/api/Chat',ChatRoute);
 
 app.listen(3000,()=>{
     console.log('App running on Port 3000!');
