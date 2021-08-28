@@ -4,6 +4,10 @@ const chatSchema = new mongoose.Schema({
     text:{
         type:String,
         required:true
+    },
+    recievingType:{
+        type:String,
+        required:true
     }
 },{ timestamps: true })
 
