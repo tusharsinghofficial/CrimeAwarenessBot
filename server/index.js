@@ -25,6 +25,8 @@ const ChatRoute = require('./routes/Chat');
 app.use('/api/user',authRoute);
 app.use('/api/Chat',ChatRoute);
 
+
+//STARTING A PORT TO LISTEN TO FOR THE SERVER
 app.listen(3000,()=>{
     console.log('App running on Port 3000!');
 })

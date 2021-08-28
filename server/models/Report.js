@@ -1,6 +1,6 @@
-const { string } = require('joi');
 const mongoose = require('mongoose');
 
+//DEFINING THE REPORT SCHEMA 
 const reportSchema = new mongoose.Schema({
     report:{
         type:String,

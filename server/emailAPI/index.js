@@ -1,4 +1,14 @@
+// A WORK IN PROGRESS
+
+
 const nodemailer  = require('nodemailer');
+const reportModel = require('../models/Report')
+const gettingReport = async ()=>{
+// const getReports =await reportModel.find();
+
+console.log(getReports);
+}
+gettingReport();
 
 const transporter = nodemailer.createTransport({
     service:'gmail',
