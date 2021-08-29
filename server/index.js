@@ -21,6 +21,7 @@ mong.connect(process.env.MONGO_URI,()=>{
 //IMPORTING ALL THE ROUTES
 const authRoute = require('./routes/auth');
 const ChatRoute = require('./routes/Chat');
+
 //USING THE ROUTES IN EXPRESS
 app.use('/api/user',authRoute);
 app.use('/api/Chat',ChatRoute);

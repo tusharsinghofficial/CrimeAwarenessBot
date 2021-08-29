@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 //CREATING A SCHEMA TO STORE CHATS-
-//THE CHATS HAVE A RECIEVING TYPE TO DIFFERENTIATE BETWEEN THE MESSAGES SENT BY THE USER AND THE MESSAGES SENT BY THE BOT
+//THE CHATS HAVE A SENDER ATTRIBUTE TO DIFFERENTIATE BETWEEN THE MESSAGES SENT BY THE USER AND THE MESSAGES SENT BY THE BOT
 const chatSchema = new mongoose.Schema({
     text:{
         type:String,
         required:true
     },
-    recievingType:{
+    sender:{
         type:String,
         required:true
     }
