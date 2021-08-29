@@ -1,0 +1,1 @@
+web:concurrently "nodemon index.js" "node ./emailAPI/index.js"
