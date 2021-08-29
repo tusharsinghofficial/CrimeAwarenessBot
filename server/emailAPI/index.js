@@ -61,7 +61,7 @@ const sendMailFunction = (body)=>{
         service:'gmail',
         auth:{
             user:"prakhar.ojha@cmselearning.org",
-            pass:'ayush1234'
+            pass:process.env.EMAIL_PASSWORD
         }
     });
     
