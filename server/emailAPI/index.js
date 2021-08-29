@@ -18,22 +18,29 @@ const mongoose = require('mongoose');
 try {
     mongoose.connect(process.env.MONGO_URI,()=>{
         console.log("Done setting up the Database!");
+        //Making this a sort of callback function
         gettingReport();
     })
 } catch (error) {
-    console.log(process.env.MONGO_URI);
+    console.log(error);
 }
 
 
 //ASYNC FUNCTION TO GET REPORT
 const gettingReport = async ()=>{
+    //GET ALL THE REPORTS SAVED IN THE REPORT COLLECTION
 const getReports =await reportModel.find();
+
+//LOOP THROUGH THE JSON RESULT OBTAINED
 for(i of getReports){
-    console.log(i.report);
+
+    //CHECK IF THE REPORT IS PRESENT IN THE sentReport COLLECTION
+    //THIS IS DONE TO ENSURE THAT THE SAME REPORT IS NOT SENT TWICE
     if(await sentReportModel.findOne({reportId:i._id})){
-        console.log('This report is done!');
         continue;
     }
+
+    //CREATING NEW MODEL FOR THE SENT REPORT AND ADD TO THE COLLECTION
     const sendReport = new sentReportModel({
         reportId:i._id
     })
@@ -41,6 +48,8 @@ for(i of getReports){
     sendMailFunction(i.report);
     console.log(sentReportSaved);
 }
+
+//MAKING IT CALL ITSELF AGAIN AND AGAIN
 gettingReport();
 }
 
