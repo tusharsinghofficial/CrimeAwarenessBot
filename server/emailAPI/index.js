@@ -8,7 +8,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 
-dotenv.config({path: '/home/prakharojha/Desktop/ME/CrimeAwarenessBot/server/.env'});
+dotenv.config({path: '/Users/tusharsingh/Documents/CrimeAwarenessBot/server/.env'});
 
 const app = express();
 
@@ -60,14 +60,14 @@ const sendMailFunction = (body)=>{
     const transporter = nodemailer.createTransport({
         service:'gmail',
         auth:{
-            user:"prakhar.ojha@cmselearning.org",
+            user:"officaltusharsingh73@gmail.com",
             pass:process.env.EMAIL_PASSWORD
         }
     });
     
     //THE MAIL SETTING,SUBJECT AND BODY
     const mailOptions = {
-        from:'prakhar.ojha@cmselearning.org',
+        from:'officaltusharsingh73@gmail.com',
         //THE TO SPACE SHOULD BE FILLED BY THE CORCERNED AUTHORITY EMAIL
         to:'prakharojha12@gmail.com',
         subject:'Sending Email!',

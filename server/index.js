@@ -1,10 +1,10 @@
 const express = require('express');
-
+const cors = require('cors');
 const app = express();
 
 //TELLING EXPRESS TO USE BODY PARSER
 app.use(express.json());
-
+app.use(cors());
 
 //DOTENV TO USE ENV FILES
 const dotenv = require('dotenv');
@@ -28,6 +28,6 @@ app.use('/api/Chat',ChatRoute);
 
 
 //STARTING A PORT TO LISTEN TO FOR THE SERVER
-app.listen(3000,()=>{
-    console.log('App running on Port 3000!');
+app.listen(4000,()=>{
+    console.log('App running on Port 4000!');
 })
