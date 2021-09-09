@@ -1,0 +1,346 @@
+/*----------GLOBAL CSS----------*/
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*font-family: 'Roboto', sans-serif;*/
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    font-family: 'Roboto', sans-serif;
+}
+html { 
+    -webkit-font-smoothing: antialiased; 
+    overflow-y: scroll;
+}
+body {
+    margin: 0;
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans' 'Droid Sans', 'Helvetica Neue', sans-serif;*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+ul {
+    list-style: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+}
+label, input[type=button], input[type=submit], button { 
+    cursor: pointer; 
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+
+/*----------PSUDO CLASSES----------*/
+
+
+
+:root {
+    --light-grey-background: rgb(231, 231, 231);
+    --light-grey-color: rgb(246, 246, 246);
+    --google-red-color: #DB4437;
+    --button-blue-color: #005eff;
+
+    --border-color: rgb(75, 75, 75);
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+
+
+/*----------UTILITY CLASSES----------*/
+
+
+
+.container{
+    max-width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin:0 auto;
+}
+
+.logout-btn{
+    color: var(--google-red-color);
+}
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+
+
+
+/*----------ID'S CLASSES----------*/
+
+
+
+/* Header */
+
+
+
+header .header-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    padding: 0 16px;
+}
+header .header-flex figure,
+header .header-flex figure img{
+    height: 80px;
+    width: 80px;
+}
+
+
+
+/* Main */
+
+
+
+
+
+
+
+/* Log In Card */
+
+
+
+.LoginCard{
+    background-color: var(--white-color);
+}
+.LoginCard .heading{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    padding: 18px 0px;
+}
+.LoginCard .inputs{
+    padding: 24px 0;
+}
+.LoginCard .inputs div{
+    padding-bottom: 10px;
+}
+.LoginCard .inputs div label{
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+    padding-bottom: 6px;
+    color: var(--border-color);
+}
+.LoginCard .inputs div .input-container{
+    text-align: center;
+}
+.LoginCard .inputs div .input-container input{
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: var(--light-grey-background) 1px solid;
+    border-radius: 5px;
+}
+
+.LoginCard .route{
+    color: var(--button-blue-color);
+    text-decoration: underline;
+}
+.LoginCard .route div{
+    padding-bottom: 12px;
+    font-size: 13px;
+}
+
+.LoginCard .btn-container{
+    text-align: center;
+    padding: 16px 0;
+}
+.LoginCard .btn-container button{
+    text-align: center;
+    padding: 16px 32px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+.LoginCard .btn-container button.login{
+    background-color: var(--white-color);
+    color: var(--button-blue-color);
+    border: var(--button-blue-color) 1px solid;
+}
+.LoginCard .btn-container button.login:hover{
+    color: var(--white-color);
+    background-color: var(--button-blue-color);
+    transition: 0.35s linear ;
+}
+.LoginCard .btn-container button.login-with-google{
+    background-color: var(--white-color);
+    color: var(--google-red-color);
+    border: var(--google-red-color) 1px solid;
+}
+.LoginCard .btn-container button.login-with-google:hover{
+    color: var(--white-color);
+    background-color: var(--google-red-color);
+    transition: 0.35s linear ;
+}
+
+
+
+/* Chat */
+
+
+
+.Chat{
+    height: 88vh;
+    width: 100%;
+}
+.Chat .home-container{
+    max-width: 360px;
+    width: 100%;
+    height: 100%;
+    padding: 18px 1rem;
+    margin:0 auto;
+    border: var(--light-grey-background) 1px solid;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.Chat .home-container .chat-area{
+    height: 92%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+.Chat .home-container .chat-area::-webkit-scrollbar {
+    display: none;
+}
+.Chat .home-container .chat-area .chat-template{
+    padding: 1em;
+    width: 250px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    position: relative;
+}
+.Chat .home-container .chat-area .chat-template .time{
+    position: absolute;
+    bottom: -16px;
+    display: block;
+    color: var(--border-color);
+    font-weight: 600;
+}
+.Chat .home-container .chat-area .recieved{
+    float: left;
+    margin-right: auto;
+    border-radius: 15px 15px 15px 0px;
+    background: rgb(215,216,220);
+    background: linear-gradient(45deg, rgba(215,216,220,1) 0%, rgba(243,244,248,1) 61%);
+    color: var(--black-color);
+}
+.Chat .home-container .chat-area .sent{
+    float: right;
+    margin-left: auto;
+    border-radius: 15px 15px 0px 15px;
+    background: rgb(1,88,255);
+    background: linear-gradient(45deg, rgba(1,88,255,1) 0%, rgba(0,89,254,1) 61%);
+    color: var(--white-color);
+}
+.Chat .home-container .chat-area .sent .time{
+    right: 1em;
+}
+
+
+.Chat .home-container .input-area{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+.Chat .home-container .input-area .input-box{
+    border: var(--border-color) 1px solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    padding: 8px 16px;
+    width: 100%;
+}
+.Chat .home-container .input-area .input-box .input,
+.Chat .home-container .input-area .input-box .input input{
+    width: 100%;
+}
+.Chat .home-container .input-area .input-box .input input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.Chat .home-container .input-area .input-box .send-btn{
+    border-radius: 50%;
+    background-color: rgb(1,88,255);
+    color: var(--white-color);
+    padding: 8px 10px 8px 8px;
+}
+.Chat .home-container .input-area .input-box .send-btn button{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: inherit;
+
+}
+
+
+
+/*----------MEDIA QUERY----------*/
+
+
+
+@media(min-width: 600px){
+    .container{
+        max-width: 352px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin:0 auto;
+    }
+    .LoginCard{
+        border: var(--light-grey-background) 1px solid;
+        border-radius: 16px;
+        padding: 16px 42px;
+    }
+}
+
+
+
+@media(min-width: 1000px){
+    .container{
+        max-width: 400px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin:0 auto;
+    }
+    .LoginCard{
+        border: var(--light-grey-background) 1px solid;
+        border-radius: 16px;
+        padding: 16px 42px;
+    }
+}
