@@ -70,7 +70,7 @@ const Chat = () => {
             
                 <div className="chat-area">
                     
-                    {/* PUT LOOP IN REVERSE */}
+                    {/* PUT LOOP IN REVERSE
 
                     { error && <div>{ error }</div> }
                     { isPending && <div>Loading...</div> }
@@ -81,7 +81,67 @@ const Chat = () => {
                                 <p className="time">{chat.createdAt}</p>
                             </div>
                         ))
-                    }
+                    } */}
+
+                    <div className="chat-template recieved">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:44</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:43</p>
+                    </div>
+
+                    <div className="chat-template recieved">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:42</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
+
+                    <div className="chat-template sent">
+                        <p className="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut adipisci aperiam quasi ut nobis, consequuntur consequatur libero numquam repellat temporibus?</p>
+                        <p className="time">9:41</p>
+                    </div>
                     
                 </div>
             
