@@ -2,16 +2,16 @@
 import {useState, useEffect} from 'react';
 import Header from './header';
 
-const Chat = () => {
-
+const Chat = (JWT) => {
+    console.log(JWT);
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     // ---------- GET REQUEST ----------
 
-    useEffect(() => {
-        fetch('http://localhost:4000/api/chat/getChat', {
+    useEffect(() => {   
+        fetch('http://localhost:5000/api/chat/getChat', {
             method: 'GET',
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(data)
@@ -39,7 +39,7 @@ const Chat = () => {
                 setError(err.message);
             }
         })
-    }, 1000);
+    }, []);
 
     // ---------- POST REQUEST ----------
 

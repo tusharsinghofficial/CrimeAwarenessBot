@@ -1,34 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { useState } from "react";
 import Header from './header';
-import axios from 'axios'
+import axios from 'axios';
+import Chat from './chat';
 const Login = () => {
+    const history =useHistory();
 
     const [emailEnteredByUser, setEmailEnteredByUser] = useState('');
     const [passwordEnteredByUser, setPasswordEnteredByUser] = useState('');
     const [isPending, setIsPending] = useState(false);
     const [JWT, setJWT] = useState("");
+    const [login, setlogin] = useState(false)
 
 
-    const handleLogin = () => {
+    const HandleLogin = () => {
         console.log('Post request - Data passed = ',emailEnteredByUser, passwordEnteredByUser);
-        const data = {emailEnteredByUser, passwordEnteredByUser};
+        const data = {
+            "email":emailEnteredByUser,
+            "password":passwordEnteredByUser
+        };
 
         setIsPending(true);
         
-        fetch('http://localhost:5000/api/user/login', {
-            method: 'POST',
-            headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(data)
-        })
+        axios.post('http://localhost:5000/api/user/login',data)
         .then((resp) => {
-            setJWT(resp);
-            console.log("Successfully Logged-in");
-            console.log("Token ", JWT);
+            setJWT(resp["data"]);
+            console.log("Token ", resp["data"]);
+            setlogin(true);
+            history.push({
+                pathname: '/chat',
+                state: { detail: JWT }
+              })
             setIsPending(false);
         })
-        setEmailEnteredByUser("");
-        setPasswordEnteredByUser("");
+        // setEmailEnteredByUser("");
+        // setPasswordEnteredByUser("");
         
     }
 
@@ -74,7 +80,7 @@ const Login = () => {
                     </div>
 
                     <div className="btn-container">
-                        <button className="login" onClick={handleLogin}>Log In</button>
+                        <button className="login" onClick={HandleLogin}>Log In</button>
                     </div>
 
                 </div>
