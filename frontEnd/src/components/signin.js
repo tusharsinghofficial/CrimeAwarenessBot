@@ -1,10 +1,10 @@
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import Header from './header';
 import axios from 'axios';
 import Chat from './chat';
 const Login = () => {
-    const history =useHistory();
+    const history = useHistory();
 
     const [emailEnteredByUser, setEmailEnteredByUser] = useState('');
     const [passwordEnteredByUser, setPasswordEnteredByUser] = useState('');
@@ -14,34 +14,38 @@ const Login = () => {
 
 
     const HandleLogin = () => {
-        console.log('Post request - Data passed = ',emailEnteredByUser, passwordEnteredByUser);
+        console.log('Post request - Data passed = ', emailEnteredByUser, passwordEnteredByUser);
         const data = {
-            "email":emailEnteredByUser,
-            "password":passwordEnteredByUser
+            "email": emailEnteredByUser,
+            "password": passwordEnteredByUser
         };
 
         setIsPending(true);
-        
-        axios.post('http://localhost:5000/api/user/login',data)
-        .then((resp) => {
-            setJWT(resp["data"]);
-            console.log("Token ", resp["data"]);
-            setlogin(true);
-            history.push({
-                pathname: '/chat',
-                state: { detail: JWT }
-              })
-            setIsPending(false);
-        })
+
+        axios.post('http://localhost:5000/api/user/login', data)
+            .then((resp) => {
+                setJWT(resp["data"]);
+                console.log("Token ", resp["data"]);
+                setlogin(true);
+                console.log(typeof(JWT));
+                window.localStorage.setItem('JWT',JWT);
+                let x = window.localStorage.getItem("JWT");
+                console.log(x);
+                history.push({
+                    pathname: '/chat'
+                })
+                
+                setIsPending(false);
+            })
         // setEmailEnteredByUser("");
         // setPasswordEnteredByUser("");
-        
+
     }
 
     return (
 
         <article>
-            <Header display="hide"></Header>                
+            <Header display="hide"></Header>
 
             <section className="container">
                 <div className="LoginCard">
@@ -52,9 +56,9 @@ const Login = () => {
                         <div>
                             <label>Enter Email or Phone Number</label>
                             <div className="input-container">
-                                <input 
-                                    type="text" 
-                                    name="name" 
+                                <input
+                                    type="text"
+                                    name="name"
                                     placeholder="Enter Email or Phone Number"
                                     value={emailEnteredByUser}
                                     onChange={(e) => setEmailEnteredByUser(e.target.value)}
@@ -64,9 +68,9 @@ const Login = () => {
                         <div>
                             <label>Enter Password</label>
                             <div className="input-container">
-                                <input 
-                                    type="password" 
-                                    name="password" 
+                                <input
+                                    type="password"
+                                    name="password"
                                     placeholder="Enter Your Password"
                                     value={passwordEnteredByUser}
                                     onChange={(e) => setPasswordEnteredByUser(e.target.value)}
@@ -89,5 +93,5 @@ const Login = () => {
 
     );
 }
- 
+
 export default Login;
