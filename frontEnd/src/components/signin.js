@@ -23,14 +23,9 @@ const Login = () => {
         setIsPending(true);
 
         axios.post('http://localhost:5000/api/user/login', data)
-            .then((resp) => {
-                setJWT(resp["data"]);
+            .then(async (resp) => {
                 console.log("Token ", resp["data"]);
-                setlogin(true);
-                console.log(typeof(JWT));
-                window.localStorage.setItem('JWT',JWT);
-                let x = window.localStorage.getItem("JWT");
-                console.log(x);
+                localStorage.setItem('JWT',resp["data"]);
                 history.push({
                     pathname: '/chat'
                 })

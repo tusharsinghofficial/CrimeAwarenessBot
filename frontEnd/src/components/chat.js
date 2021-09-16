@@ -3,8 +3,7 @@ import {useState, useEffect} from 'react';
 import Header from './header';
 
 const Chat = () => {
-    let x = window.localStorage.getItem("JWT");
-    console.log(x);
+    
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
@@ -12,7 +11,8 @@ const Chat = () => {
     // ---------- GET REQUEST ----------
    
     useEffect(() => { 
-     
+        const x = localStorage.getItem("JWT");
+        console.log(x);
         fetch('http://localhost:5000/api/chat/getChat', {
             method: 'GET',
             headers: {"Content-Type":"application/json"},
