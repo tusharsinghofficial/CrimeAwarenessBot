@@ -2,15 +2,17 @@
 import {useState, useEffect} from 'react';
 import Header from './header';
 
-const Chat = (JWT) => {
-    console.log(JWT);
+const Chat = () => {
+    
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     // ---------- GET REQUEST ----------
-
-    useEffect(() => {   
+   
+    useEffect(() => { 
+        const x = localStorage.getItem("JWT");
+        console.log(x);
         fetch('http://localhost:5000/api/chat/getChat', {
             method: 'GET',
             headers: {"Content-Type":"application/json"},
