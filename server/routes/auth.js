@@ -52,7 +52,6 @@ router.post('/login', async (req, res) => {
     const { error } = loginValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-
     //CHECK IF USER ALREADY PRESENT
     const user = await User.findOne({ email: req.body.email });
     if (!user)

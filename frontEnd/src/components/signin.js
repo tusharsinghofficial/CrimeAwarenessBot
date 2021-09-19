@@ -14,14 +14,11 @@ const Login = () => {
 
 
     const HandleLogin = () => {
-        console.log('Post request - Data passed = ', emailEnteredByUser, passwordEnteredByUser);
         const data = {
             "email": emailEnteredByUser,
             "password": passwordEnteredByUser
         };
-
         setIsPending(true);
-
         axios.post('http://localhost:5000/api/user/login', data)
             .then(async (resp) => {
                 console.log("Token ", resp["data"]);
@@ -32,6 +29,7 @@ const Login = () => {
                 
                 setIsPending(false);
             })
+            .catch(err=>console.log(err))
         // setEmailEnteredByUser("");
         // setPasswordEnteredByUser("");
 

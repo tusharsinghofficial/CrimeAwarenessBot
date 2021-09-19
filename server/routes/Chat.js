@@ -13,6 +13,7 @@ router.get('/getChat', verify, async (req, res) => {
     const chatModel = chatModelFunction(req.user._id);
 
     const getChats = await chatModel.find();
+    console.log(getChats);
 
     res.send(getChats);
 })
@@ -23,14 +24,14 @@ const greetings = ['Hello', 'Hii', 'Hi', 'Hey', 'Yo', 'Start'];
 
 //POSTING ALL THE CHATS OF THE USER
 router.post('/postChat', verify, async (req, res) => {
-
+    console.log(req.body);
     const chatModel = chatModelFunction(req.user._id);
-
+    console.log(req.user);
     const gotChat = new chatModel({
         text: req.body.text,
         sender: "user"
     });
-    
+    console.log(gotChat);
     var chatBotMessage = ' ';
     try {
 
