@@ -33,7 +33,7 @@ const Chat = () => {
     //INITIAL CALL WHEN PAGE LOADS
     useEffect(() => { 
         getChat();
-    }, []);
+    }, [data]);
 
     // ---------- POST REQUEST WHEN CHAT IS SENT TO THE DB ----------
 
