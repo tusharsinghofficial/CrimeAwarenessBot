@@ -27,7 +27,7 @@ const Chat = () => {
     //INITIAL CALL WHEN PAGE LOADS
     useEffect(() => { 
         getChat();
-    }, [data]);
+    }, []);
 
     // ---------- POST REQUEST WHEN CHAT IS SENT TO THE DB ----------
 
@@ -45,12 +45,13 @@ const Chat = () => {
               })
               .then((resp) => {
                 console.log("Chat Saved to the Db");
+        getChat();
+
             })
             .catch(err=>console.log(err))
         setChatEntered("");
 
         //SET FETCH REQUEST TO GET DATA FROM THE DATABASE
-        getChat();
     }
 
 
