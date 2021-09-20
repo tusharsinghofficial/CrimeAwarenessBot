@@ -5,14 +5,11 @@ import axios  from 'axios';
 const Chat = () => {
     
     const [data, setData] = useState(null);
-    const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
-    const [reloadChat, setreloadChat] = useState(false);
     const [chatEntered, setChatEntered] = useState("");
 
     // ---------- GET REQUEST TO GET CHAT DATA FROM DB ----------
     const getChat = () =>{
-        setIsPending(true);
         const x = localStorage.getItem("JWT");
         axios({
             method: 'get',
@@ -22,10 +19,7 @@ const Chat = () => {
             }
           })
           .then((resp) => {
-            console.log("Got the Chat");
             setData(resp["data"].reverse());
-        setIsPending(false);
-        reloadChat(true);
         })
         .catch(err=>console.log(err))
     }
@@ -56,7 +50,6 @@ const Chat = () => {
         setChatEntered("");
 
         //SET FETCH REQUEST TO GET DATA FROM THE DATABASE
-        setIsPending(true);
         getChat();
     }
 
@@ -74,7 +67,6 @@ const Chat = () => {
                     
                     {/* PUT LOOP IN REVERSE */}
                     { error && <div>{ error }</div> }
-                    { isPending && <div>Loading...</div> }
                     { data && 
                         data.map((chat)=>(
                             chat.sender=='bot'?
