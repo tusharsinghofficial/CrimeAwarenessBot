@@ -7,10 +7,12 @@ const Chat = () => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [reloadChat, setreloadChat] = useState(false);
+    const [chatEntered, setChatEntered] = useState("");
 
-    // ---------- GET REQUEST ----------
-   
-    useEffect(() => { 
+    // ---------- GET REQUEST TO GET CHAT DATA FROM DB ----------
+    const getChat = () =>{
+        setIsPending(true);
         const x = localStorage.getItem("JWT");
         axios({
             method: 'get',
@@ -22,19 +24,23 @@ const Chat = () => {
           .then((resp) => {
             console.log("Got the Chat");
             setData(resp["data"].reverse());
-        setIsPending(false)
+        setIsPending(false);
+        reloadChat(true);
         })
         .catch(err=>console.log(err))
+    }
+
+    //INITIAL CALL WHEN PAGE LOADS
+    useEffect(() => { 
+        getChat();
     }, []);
 
-    // ---------- POST REQUEST ----------
+    // ---------- POST REQUEST WHEN CHAT IS SENT TO THE DB ----------
 
-    const [chatEntered, setChatEntered] = useState("");
 
     const handleSend = () => {
         const chatData = {"text":chatEntered};
         const jwt = localStorage.getItem('JWT');
-        console.log(data);
             axios({
                 method: 'post',
                 url: 'http://localhost:5000/api/chat/postChat',
@@ -48,22 +54,10 @@ const Chat = () => {
             })
             .catch(err=>console.log(err))
         setChatEntered("");
+
         //SET FETCH REQUEST TO GET DATA FROM THE DATABASE
         setIsPending(true);
-        const x = localStorage.getItem("JWT");
-        axios({
-            method: 'get',
-            url: 'http://localhost:5000/api/chat/getChat',
-            headers:{
-                'auth-token':x
-            }
-          })
-          .then((resp) => {
-            console.log("Got the Chat");
-            setData(resp["data"].reverse());
-        setIsPending(false)
-        })
-        .catch(err=>console.log(err))
+        getChat();
     }
 
 
@@ -79,7 +73,6 @@ const Chat = () => {
                 <div className="chat-area">
                     
                     {/* PUT LOOP IN REVERSE */}
-
                     { error && <div>{ error }</div> }
                     { isPending && <div>Loading...</div> }
                     { data && 
@@ -97,7 +90,7 @@ const Chat = () => {
                     }
                     
                 </div>
-            
+                {/* INPUT BOX FOR CHAT */}
                 <div className="input-area">
                     <div className="input-box">
                         <div className="input">
